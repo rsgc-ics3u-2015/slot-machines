@@ -88,6 +88,12 @@ repeat {
     }
     
 } while quarters == 0
+print("")
+
+// Machine payout thresholds
+let machineAPayoutThreshold : Int = 35
+let machineBPayoutThreshold : Int = 100
+let machineCPayoutThreshold : Int = 10
 
 // Get times since machine A paid out (at least 0 and less than 35)
 // If not valid, just repeat question (no error message)
@@ -103,14 +109,13 @@ repeat {
     // readLine always returns an optional data type, so use optional binding to attempt to unwrap it
     if let input = readLine(stripNewline: true) {
         
-        
         // Optional binding worked, we have something to work with
         // The 'input' variable has a type of String (non-optional data type, must have non-nil value now)
         // Attempt to cast that value as an integer
         if let inputAsInteger = Int(input) {
             
             // If this works, the input was converted to an integer
-            if inputAsInteger > -1 && inputAsInteger < 35 {
+            if inputAsInteger > -1 && inputAsInteger < machineAPayoutThreshold {
                 machineATimesPlayedSincePayout = inputAsInteger
             }
             
@@ -118,14 +123,69 @@ repeat {
     }
     
 } while machineATimesPlayedSincePayout == -1
+print("")
 
-var machineBTimesPlayedSincePayout : Int = 0
-var machineCTimesPlayedSincePayout : Int = 0
+// Get times since machine B paid out (at least 0 and less than 100)
+// If not valid, just repeat question (no error message)
+var machineBTimesPlayedSincePayout : Int = -1          // Set to non-valid input
+
+// Keep looping until valid input given
+repeat {
+    
+    // Prompt the user
+    print("How many times has the second machine been played since paying out?")
+    
+    // OK, try to get input from the user
+    // readLine always returns an optional data type, so use optional binding to attempt to unwrap it
+    if let input = readLine(stripNewline: true) {
+        
+        // Optional binding worked, we have something to work with
+        // The 'input' variable has a type of String (non-optional data type, must have non-nil value now)
+        // Attempt to cast that value as an integer
+        if let inputAsInteger = Int(input) {
+            
+            // If this works, the input was converted to an integer
+            if inputAsInteger > -1 && inputAsInteger < machineBPayoutThreshold {
+                machineBTimesPlayedSincePayout = inputAsInteger
+            }
+            
+        }
+    }
+    
+} while machineBTimesPlayedSincePayout == -1
+print("")
+
+// Get times since machine C paid out (at least 0 and less than 10)
+// If not valid, just repeat question (no error message)
+var machineCTimesPlayedSincePayout : Int = -1          // Set to non-valid input
+
+// Keep looping until valid input given
+repeat {
+    
+    // Prompt the user
+    print("How many times has the third machine been played since paying out?")
+    
+    // OK, try to get input from the user
+    // readLine always returns an optional data type, so use optional binding to attempt to unwrap it
+    if let input = readLine(stripNewline: true) {
+        
+        // Optional binding worked, we have something to work with
+        // The 'input' variable has a type of String (non-optional data type, must have non-nil value now)
+        // Attempt to cast that value as an integer
+        if let inputAsInteger = Int(input) {
+            
+            // If this works, the input was converted to an integer
+            if inputAsInteger > -1 && inputAsInteger < machineCPayoutThreshold {
+                machineCTimesPlayedSincePayout = inputAsInteger
+            }
+            
+        }
+    }
+    
+} while machineCTimesPlayedSincePayout == -1
+print("")
 
 // Other variables and constants
-let machineAPayoutThreshold : Int = 35
-let machineBPayoutThreshold : Int = 100
-let machineCPayoutThreshold : Int = 10
 var timesPlayed : Int = 0
 
 // Process
