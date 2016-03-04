@@ -45,18 +45,43 @@ I need to keep track of the number of plays before coins run out (reach 0).
 //let a : Int = 10
 //let b : Int = 1
 //let c : Int = 1
-// 6: Test example given
-let q : Int = 48
-let a : Int = 3
-let b : Int = 10
-let c : Int = 4
+//// 6: Test example given
+//let q : Int = 48
+//let a : Int = 3
+//let b : Int = 10
+//let c : Int = 4
 
 // Inputs
 
-var quarters : Int = q
-var machineATimesPlayedSincePayout : Int = a
-var machineBTimesPlayedSincePayout : Int = b
-var machineCTimesPlayedSincePayout : Int = c
+// Get quarters (at least 1 coin and fewer than 1000)
+// If not valid, just repeat question (no error message)
+var quarters : Int = 0          // Set to non-valid input
+
+// Prompt the user
+print("How many quarters does Martha have in the jar?")
+
+// OK, try to get input from the user
+// readLine always returns an optional data type, so use optional binding to attempt to unwrap it
+if let input = readLine(stripNewline: true) {
+    
+    
+    // Optional binding worked, we have something to work with
+    // The 'input' variable has a type of String (non-optional data type, must have non-nil value now)
+    // Attempt to cast that value as an integer
+    if let inputAsInteger = Int(input) {
+        
+        // If this works, the input was converted to an integer
+        if inputAsInteger > 0 && inputAsInteger < 1000 {
+            quarters = inputAsInteger
+        }
+        
+    }
+}
+
+
+var machineATimesPlayedSincePayout : Int = 0
+var machineBTimesPlayedSincePayout : Int = 0
+var machineCTimesPlayedSincePayout : Int = 0
 
 // Other variables and constants
 let machineAPayoutThreshold : Int = 35
@@ -72,49 +97,55 @@ var timesPlayed : Int = 0
 // Keep playing until the money runs out!  NOTE: Not a good idea in real life.
 repeat {
     
-    // Play machine A
-    timesPlayed += 1
-    quarters -= 1
-    machineATimesPlayedSincePayout += 1
-    // Check for payout
-    if machineATimesPlayedSincePayout == machineAPayoutThreshold {
-        
-        // She wins – add 30 quarters
-        quarters += 30
-        
-        // Reset machine played since payout value
-        machineATimesPlayedSincePayout = 0
-        
+    // Play machine A (but only if Martha has enough quarters)
+    if (quarters > 0) {
+        timesPlayed += 1
+        quarters -= 1
+        machineATimesPlayedSincePayout += 1
+        // Check for payout
+        if machineATimesPlayedSincePayout == machineAPayoutThreshold {
+            
+            // She wins – add 30 quarters
+            quarters += 30
+            
+            // Reset machine played since payout value
+            machineATimesPlayedSincePayout = 0
+            
+        }
     }
     
-    // Play machine B
-    timesPlayed += 1
-    quarters -= 1
-    machineBTimesPlayedSincePayout += 1
-    // Check for payout
-    if machineBTimesPlayedSincePayout == machineBPayoutThreshold {
-        
-        // She wins – add 60 quarters
-        quarters += 60
-        
-        // Reset machine played since payout value
-        machineBTimesPlayedSincePayout = 0
-        
+    // Play machine B (but only if Martha has enough quarters)
+    if (quarters > 0) {
+        timesPlayed += 1
+        quarters -= 1
+        machineBTimesPlayedSincePayout += 1
+        // Check for payout
+        if machineBTimesPlayedSincePayout == machineBPayoutThreshold {
+            
+            // She wins – add 60 quarters
+            quarters += 60
+            
+            // Reset machine played since payout value
+            machineBTimesPlayedSincePayout = 0
+            
+        }
     }
     
-    // Play machine C
-    timesPlayed += 1
-    quarters -= 1
-    machineCTimesPlayedSincePayout += 1
-    // Check for payout
-    if machineCTimesPlayedSincePayout == machineCPayoutThreshold {
-        
-        // She wins – add 9 quarters
-        quarters += 9
-        
-        // Reset machine played since payout value
-        machineCTimesPlayedSincePayout = 0
-        
+    // Play machine C (but only if Martha has enough quarters)
+    if (quarters > 0) {
+        timesPlayed += 1
+        quarters -= 1
+        machineCTimesPlayedSincePayout += 1
+        // Check for payout
+        if machineCTimesPlayedSincePayout == machineCPayoutThreshold {
+            
+            // She wins – add 9 quarters
+            quarters += 9
+            
+            // Reset machine played since payout value
+            machineCTimesPlayedSincePayout = 0
+            
+        }    
     }
     
 } while quarters > 0
