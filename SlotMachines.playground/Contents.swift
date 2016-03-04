@@ -28,9 +28,13 @@ I need to keep track of the number of plays before coins run out (reach 0).
 //let q : Int = 25
 //let a : Int = 10
 // 3: Broke after 99 plays (just testing machine B)
+//let q : Int = 99
+//let a : Int = 10
+//let b : Int = 0
+// 4: Broke after 159 plays (just testing machine B)
 let q : Int = 99
 let a : Int = 10
-let b : Int = 0
+let b : Int = 1
 
 // Inputs
 
