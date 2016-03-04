@@ -20,9 +20,15 @@ I need to keep track of the number of plays before coins run out (reach 0).
 
 // Going to begin by working a simpler version of the problem – just machine A
 
+// Test cases
+// 1: Broke after 25 plays
+let q : Int = 1
+let a : Int = 25
+
 // Inputs
-var quarters : Int = 25
-var machineATimesPlayedSincePayout : Int = 1
+
+var quarters : Int = q
+var machineATimesPlayedSincePayout : Int = a
 
 // Other variables and constants
 let machineAPayoutThreshold : Int = 35
