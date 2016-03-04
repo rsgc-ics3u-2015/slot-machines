@@ -25,16 +25,22 @@ I need to keep track of the number of plays before coins run out (reach 0).
 //let q : Int = 1
 //let a : Int = 25
 // 2: Goes right to broke (0) after 25 plays BUT wins 30 quarters at last minute and then gets 30 more plays... THEN gets 30 more plays but goes broke before machine hits payout threshold of 35 again.  So a total of 55 plays.
+//let q : Int = 25
+//let a : Int = 10
+// 3: Description to come...
 let q : Int = 25
 let a : Int = 10
+let b : Int = 0
 
 // Inputs
 
 var quarters : Int = q
 var machineATimesPlayedSincePayout : Int = a
+var machineBTimesPlayedSincePayout : Int = b
 
 // Other variables and constants
 let machineAPayoutThreshold : Int = 35
+let machineBPayoutThreshold : Int = 100
 var timesPlayed : Int = 0
 
 // Process
@@ -58,6 +64,21 @@ repeat {
         // Reset machine played since payout value
         machineATimesPlayedSincePayout = 0
     
+    }
+    
+    // Play machine B
+    timesPlayed += 1
+    quarters -= 1
+    machineBTimesPlayedSincePayout += 1
+    // Check for payout
+    if machineBTimesPlayedSincePayout == machineBPayoutThreshold {
+        
+        // She wins – add 60 quarters
+        quarters += 60
+        
+        // Reset machine played since payout value
+        machineBTimesPlayedSincePayout = 0
+        
     }
 
 } while quarters > 0
