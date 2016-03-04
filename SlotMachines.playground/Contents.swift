@@ -27,8 +27,8 @@ I need to keep track of the number of plays before coins run out (reach 0).
 // 2: Goes right to broke (0) after 25 plays BUT wins 30 quarters at last minute and then gets 30 more plays... THEN gets 30 more plays but goes broke before machine hits payout threshold of 35 again.  So a total of 55 plays.
 //let q : Int = 25
 //let a : Int = 10
-// 3: Description to come...
-let q : Int = 25
+// 3: Broke after 99 plays
+let q : Int = 99
 let a : Int = 10
 let b : Int = 0
 
@@ -51,20 +51,20 @@ var timesPlayed : Int = 0
 // Keep playing until the money runs out!  NOTE: Not a good idea in real life.
 repeat {
     
-    // Play machine A
-    timesPlayed += 1
-    quarters -= 1
-    machineATimesPlayedSincePayout += 1
-    // Check for payout
-    if machineATimesPlayedSincePayout == machineAPayoutThreshold {
-
-        // She wins – add 30 quarters
-        quarters += 30
-        
-        // Reset machine played since payout value
-        machineATimesPlayedSincePayout = 0
-    
-    }
+//    // Play machine A
+//    timesPlayed += 1
+//    quarters -= 1
+//    machineATimesPlayedSincePayout += 1
+//    // Check for payout
+//    if machineATimesPlayedSincePayout == machineAPayoutThreshold {
+//
+//        // She wins – add 30 quarters
+//        quarters += 30
+//        
+//        // Reset machine played since payout value
+//        machineATimesPlayedSincePayout = 0
+//    
+//    }
     
     // Play machine B
     timesPlayed += 1
