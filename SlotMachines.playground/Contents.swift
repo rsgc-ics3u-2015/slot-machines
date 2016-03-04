@@ -40,11 +40,16 @@ I need to keep track of the number of plays before coins run out (reach 0).
 //let a : Int = 10
 //let b : Int = 1
 //let c : Int = 1
-// 5: Broke after 18 plays (just testing machine C)
-let q : Int = 9
-let a : Int = 10
-let b : Int = 1
-let c : Int = 1
+//// 5: Broke after 18 plays (just testing machine C)
+//let q : Int = 9
+//let a : Int = 10
+//let b : Int = 1
+//let c : Int = 1
+// 6: Test example given
+let q : Int = 48
+let a : Int = 3
+let b : Int = 10
+let c : Int = 4
 
 // Inputs
 
@@ -67,35 +72,35 @@ var timesPlayed : Int = 0
 // Keep playing until the money runs out!  NOTE: Not a good idea in real life.
 repeat {
     
-//    // Play machine A
-//    timesPlayed += 1
-//    quarters -= 1
-//    machineATimesPlayedSincePayout += 1
-//    // Check for payout
-//    if machineATimesPlayedSincePayout == machineAPayoutThreshold {
-//
-//        // She wins – add 30 quarters
-//        quarters += 30
-//        
-//        // Reset machine played since payout value
-//        machineATimesPlayedSincePayout = 0
-//    
-//    }
+    // Play machine A
+    timesPlayed += 1
+    quarters -= 1
+    machineATimesPlayedSincePayout += 1
+    // Check for payout
+    if machineATimesPlayedSincePayout == machineAPayoutThreshold {
+
+        // She wins – add 30 quarters
+        quarters += 30
+        
+        // Reset machine played since payout value
+        machineATimesPlayedSincePayout = 0
     
-//    // Play machine B
-//    timesPlayed += 1
-//    quarters -= 1
-//    machineBTimesPlayedSincePayout += 1
-//    // Check for payout
-//    if machineBTimesPlayedSincePayout == machineBPayoutThreshold {
-//        
-//        // She wins – add 60 quarters
-//        quarters += 60
-//        
-//        // Reset machine played since payout value
-//        machineBTimesPlayedSincePayout = 0
-//        
-//    }
+    }
+    
+    // Play machine B
+    timesPlayed += 1
+    quarters -= 1
+    machineBTimesPlayedSincePayout += 1
+    // Check for payout
+    if machineBTimesPlayedSincePayout == machineBPayoutThreshold {
+        
+        // She wins – add 60 quarters
+        quarters += 60
+        
+        // Reset machine played since payout value
+        machineBTimesPlayedSincePayout = 0
+        
+    }
 
     // Play machine C
     timesPlayed += 1
