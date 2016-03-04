@@ -4,7 +4,7 @@
 
 /*
 
-Basically, when a starting number of coins...
+Basically, with a starting number of coins...
 
 ... play three machines, each after the other, A, B, then C.
 
@@ -12,7 +12,7 @@ Then back to A again, and so on.
 
 Machine A pays 30 coins every 35 turns
 Machine B pays 60 coins every 100 turns
-Machine C 9 coins every 10 turns
+Machine C pays 9 coins every 10 turns
 
 I need to keep track of the number of plays before coins run out (reach 0).
 
