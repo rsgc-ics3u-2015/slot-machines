@@ -55,6 +55,7 @@ I need to keep track of the number of plays before coins run out (reach 0).
 //let a : Int = 3
 //let b : Int = 10
 //let c : Int = 4
+// 8 : Test when a machine is right on the payout threshold
 
 // Inputs
 
@@ -88,9 +89,36 @@ repeat {
     
 } while quarters == 0
 
+// Get times since machine A paid out (at least 0 and less than 35)
+// If not valid, just repeat question (no error message)
+var machineATimesPlayedSincePayout : Int = -1          // Set to non-valid input
 
+// Keep looping until valid input given
+repeat {
+    
+    // Prompt the user
+    print("How many times has the first machine been played since paying out?")
+    
+    // OK, try to get input from the user
+    // readLine always returns an optional data type, so use optional binding to attempt to unwrap it
+    if let input = readLine(stripNewline: true) {
+        
+        
+        // Optional binding worked, we have something to work with
+        // The 'input' variable has a type of String (non-optional data type, must have non-nil value now)
+        // Attempt to cast that value as an integer
+        if let inputAsInteger = Int(input) {
+            
+            // If this works, the input was converted to an integer
+            if inputAsInteger > -1 && inputAsInteger < 35 {
+                machineATimesPlayedSincePayout = inputAsInteger
+            }
+            
+        }
+    }
+    
+} while machineATimesPlayedSincePayout == -1
 
-var machineATimesPlayedSincePayout : Int = 0
 var machineBTimesPlayedSincePayout : Int = 0
 var machineCTimesPlayedSincePayout : Int = 0
 
