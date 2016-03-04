@@ -31,20 +31,27 @@ I need to keep track of the number of plays before coins run out (reach 0).
 //let q : Int = 99
 //let a : Int = 10
 //let b : Int = 0
-// 4: Broke after 159 plays (just testing machine B)
-let q : Int = 99
+//// 4: Broke after 159 plays (just testing machine B)
+//let q : Int = 99
+//let a : Int = 10
+//let b : Int = 1
+// 5: Broke after 1 play (just testing machine C)
+let q : Int = 1
 let a : Int = 10
 let b : Int = 1
+let c : Int = 1
 
 // Inputs
 
 var quarters : Int = q
 var machineATimesPlayedSincePayout : Int = a
 var machineBTimesPlayedSincePayout : Int = b
+var machineCTimesPlayedSincePayout : Int = c
 
 // Other variables and constants
 let machineAPayoutThreshold : Int = 35
 let machineBPayoutThreshold : Int = 100
+let machineCPayoutThreshold : Int = 10
 var timesPlayed : Int = 0
 
 // Process
@@ -70,21 +77,36 @@ repeat {
 //    
 //    }
     
-    // Play machine B
+//    // Play machine B
+//    timesPlayed += 1
+//    quarters -= 1
+//    machineBTimesPlayedSincePayout += 1
+//    // Check for payout
+//    if machineBTimesPlayedSincePayout == machineBPayoutThreshold {
+//        
+//        // She wins – add 60 quarters
+//        quarters += 60
+//        
+//        // Reset machine played since payout value
+//        machineBTimesPlayedSincePayout = 0
+//        
+//    }
+
+    // Play machine C
     timesPlayed += 1
     quarters -= 1
-    machineBTimesPlayedSincePayout += 1
+    machineCTimesPlayedSincePayout += 1
     // Check for payout
-    if machineBTimesPlayedSincePayout == machineBPayoutThreshold {
+    if machineCTimesPlayedSincePayout == machineCPayoutThreshold {
         
-        // She wins – add 60 quarters
-        quarters += 60
+        // She wins – add 9 quarters
+        quarters += 9
         
         // Reset machine played since payout value
-        machineBTimesPlayedSincePayout = 0
+        machineCTimesPlayedSincePayout = 0
         
     }
-
+    
 } while quarters > 0
 
 // Output
