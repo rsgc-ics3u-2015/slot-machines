@@ -50,6 +50,11 @@ I need to keep track of the number of plays before coins run out (reach 0).
 //let a : Int = 3
 //let b : Int = 10
 //let c : Int = 4
+// 7: Test when she has fewer than 3 quarters (runs out before loop complete)
+//let q : Int = 2
+//let a : Int = 3
+//let b : Int = 10
+//let c : Int = 4
 
 // Inputs
 
@@ -57,26 +62,32 @@ I need to keep track of the number of plays before coins run out (reach 0).
 // If not valid, just repeat question (no error message)
 var quarters : Int = 0          // Set to non-valid input
 
-// Prompt the user
-print("How many quarters does Martha have in the jar?")
+// Keep looping until valid input given
+repeat {
 
-// OK, try to get input from the user
-// readLine always returns an optional data type, so use optional binding to attempt to unwrap it
-if let input = readLine(stripNewline: true) {
+    // Prompt the user
+    print("How many quarters does Martha have in the jar?")
     
-    
-    // Optional binding worked, we have something to work with
-    // The 'input' variable has a type of String (non-optional data type, must have non-nil value now)
-    // Attempt to cast that value as an integer
-    if let inputAsInteger = Int(input) {
+    // OK, try to get input from the user
+    // readLine always returns an optional data type, so use optional binding to attempt to unwrap it
+    if let input = readLine(stripNewline: true) {
         
-        // If this works, the input was converted to an integer
-        if inputAsInteger > 0 && inputAsInteger < 1000 {
-            quarters = inputAsInteger
+        
+        // Optional binding worked, we have something to work with
+        // The 'input' variable has a type of String (non-optional data type, must have non-nil value now)
+        // Attempt to cast that value as an integer
+        if let inputAsInteger = Int(input) {
+            
+            // If this works, the input was converted to an integer
+            if inputAsInteger > 0 && inputAsInteger < 1000 {
+                quarters = inputAsInteger
+            }
+            
         }
-        
     }
-}
+    
+} while quarters == 0
+
 
 
 var machineATimesPlayedSincePayout : Int = 0
@@ -145,7 +156,7 @@ repeat {
             // Reset machine played since payout value
             machineCTimesPlayedSincePayout = 0
             
-        }    
+        }
     }
     
 } while quarters > 0
