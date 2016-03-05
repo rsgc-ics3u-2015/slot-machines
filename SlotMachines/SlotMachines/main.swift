@@ -197,20 +197,18 @@ var timesPlayed : Int = 0
 repeat {
     
     // Play machine A (but only if Martha has enough quarters)
-    if (quarters > 0) {
-        timesPlayed += 1
-        quarters -= 1
-        machineATimesPlayedSincePayout += 1
-        // Check for payout
-        if machineATimesPlayedSincePayout == machineAPayoutThreshold {
-            
-            // She wins – add 30 quarters
-            quarters += 30
-            
-            // Reset machine played since payout value
-            machineATimesPlayedSincePayout = 0
-            
-        }
+    timesPlayed += 1
+    quarters -= 1
+    machineATimesPlayedSincePayout += 1
+    // Check for payout
+    if machineATimesPlayedSincePayout == machineAPayoutThreshold {
+        
+        // She wins – add 30 quarters
+        quarters += 30
+        
+        // Reset machine played since payout value
+        machineATimesPlayedSincePayout = 0
+        
     }
     
     // Play machine B (but only if Martha has enough quarters)
